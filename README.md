@@ -2,7 +2,7 @@
 
 # agentsvc.io
 
-**111 pay-per-call APIs for AI agents.** Your agent pays each call in USDC over [x402](https://x402.org), from its own wallet, on Base, Solana, Polygon or Arbitrum. No account, no API key, no subscription. Calls cost 0.002 to 0.04 USDC.
+**113 pay-per-call APIs for AI agents.** Your agent pays each call in USDC over [x402](https://x402.org), from its own wallet, on Base, Solana, Polygon or Arbitrum. No account, no API key, no subscription. Calls cost 0.002 to 0.04 USDC.
 
 Use it as a **remote MCP server** (`https://agentsvc.io/mcp`) or as plain **HTTP endpoints** (`POST https://agentsvc.io/api/v1/proxy/<service>`).
 
@@ -10,6 +10,8 @@ What agents use it for:
 
 - **Before a swap:** `token-precheck` answers ALLOW, CAUTION or BLOCK for up to 5 tokens (honeypot simulation, taxes, owner powers, liquidity). `token-verdict` grades one token A to F.
 - **Before acting on untrusted text:** `prompt-injection-check` for web pages, tool results and emails, `scam-message-check` for DMs, casts and emails.
+- **Before installing a dependency:** `package-check` answers ALLOW, CAUTION or BLOCK for up to 20 packages (npm, PyPI, crates.io, Go, Maven, NuGet, RubyGems): hallucinated names that do not exist, known malware, typosquats, vulnerable versions with a safe upgrade.
+- **Before citing a source:** `citation-check` verifies up to 10 references against Crossref and OpenAlex and flags invented, miscited and retracted papers.
 - **Reading the web:** `web-scrape` and `site-crawl` to Markdown, `screenshot`, `html-to-pdf`, `answer-with-sources`, `news-search`.
 - **Documents and companies:** `invoice-extract`, `pdf-extract`, `ocr`, `company-brief` (LEI, VAT, sanctions, imprint), `sanctions-screen`.
 - **Proofs and monitoring:** `iota-notarize` and `btc-timestamp` for tamper-evident hashes, `page-watch`, `token-watch` and `wallet-watch` with webhooks.

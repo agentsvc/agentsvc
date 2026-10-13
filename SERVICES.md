@@ -1,4 +1,4 @@
-# All 111 services
+# All 113 services
 
 Generated from the live catalog at https://agentsvc.io/api/v1/services. Prices in USDC per call. Each service has a free sample with its example input at `/api/v1/try/<slug>`.
 
@@ -44,6 +44,7 @@ Generated from the live catalog at https://agentsvc.io/api/v1/services. Prices i
 
 | Service | Price | What it does |
 |---|---|---|
+| [`citation-check`](https://agentsvc.io/services/citation-check) | 0.005 | Verify references before you publish or rely on them: up to 10 citations per call, as reference strings in any style, DOIs, or {title, authors, year, doi} |
 | [`doc-convert`](https://agentsvc.io/services/doc-convert) | 0.01 | Convert documents between formats with pandoc: Markdown, HTML, DOCX, ODT, EPUB, RST, LaTeX, RTF, plain text and PDF |
 | [`doc-parse`](https://agentsvc.io/services/doc-parse) | 0.009 | Document parser: turn a document into clean, agent-ready Markdown with metadata: DOCX, ODT, EPUB, RTF, HTML, RST, LaTeX and more |
 | [`language-detect`](https://agentsvc.io/services/language-detect) | 0.0025 | Detect the language of a text (80+ languages) with ISO 639-1 and 639-3 codes, confidence, a reliability flag and the top candidates |
@@ -135,6 +136,7 @@ Generated from the live catalog at https://agentsvc.io/api/v1/services. Prices i
 | [`geocode`](https://agentsvc.io/services/geocode) | 0.003 | Geocoding and reverse geocoding from GeoNames: city, town or postal code to lat/lon, and lat/lon to the nearest place and postal code |
 | [`iban-validate`](https://agentsvc.io/services/iban-validate) | 0.0025 | Validate an IBAN (checksum, country length and structure), split it into bank code, branch and account number, report SEPA membership, and for DE, AT, CH, NL, BE, LU and LI add bank name, BIC and city |
 | [`ip-lookup`](https://agentsvc.io/services/ip-lookup) | 0.0055 | IP lookup and geolocation: resolve any public IPv4 or IPv6 address to location and network data from a local database (no third-party call, answers in milliseconds): country, country_code, region, city, lat/lon, IANA timezone, continent, is_eu, ASN with organization (isp, org, asn) |
+| [`package-check`](https://agentsvc.io/services/package-check) | 0.004 | Check dependencies before your coding agent installs them: up to 20 packages per call (npm, PyPI, crates.io, Go, Maven, NuGet, RubyGems), one decision each: ALLOW, CAUTION or BLOCK with reasons |
 | [`phone-validate`](https://agentsvc.io/services/phone-validate) | 0.0045 | Parse and validate any phone number worldwide using libphonenumber |
 | [`qr-code`](https://agentsvc.io/services/qr-code) | 0.004 | Generate a QR code for any text or URL |
 | [`ssl-check`](https://agentsvc.io/services/ssl-check) | 0.009 | Inspect SSL/TLS certificate for any domain |
