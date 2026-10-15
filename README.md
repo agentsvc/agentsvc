@@ -2,7 +2,7 @@
 
 # agentsvc.io
 
-**120 pay-per-call APIs for AI agents.** Your agent pays each call in USDC over [x402](https://x402.org), from its own wallet, on Base, Solana, Polygon or Arbitrum. No account, no API key, no subscription. Most calls cost 0.002 to 0.04 USDC, a few multi-source reports up to 0.60 USDC.
+**122 pay-per-call APIs for AI agents.** Your agent pays each call in USDC over [x402](https://x402.org), from its own wallet, on Base, Solana, Polygon or Arbitrum. No account, no API key, no subscription. Most calls cost 0.002 to 0.04 USDC, a few multi-source reports up to 0.60 USDC.
 
 Use it as a **remote MCP server** (`https://agentsvc.io/mcp`) or as plain **HTTP endpoints** (`POST https://agentsvc.io/api/v1/proxy/<service>`).
 
@@ -96,6 +96,23 @@ async with x402HttpxClient(client) as http:
 ```
 
 Both examples were run against the live service with a real USDC payment on Polygon.
+
+## OpenAI-compatible paths
+
+Same x402 payment and prices, OpenAI request and response format, base URL `https://agentsvc.io/v1`:
+
+| Path | Service | Price |
+|---|---|---|
+| `POST /v1/embeddings` | text-embed (all-MiniLM-L6-v2) | 0.002 USDC |
+| `POST /v1/rerank` (Cohere/Jina format) | text-embed | 0.002 USDC |
+| `POST /v1/audio/speech` | tts (returns audio bytes) | 0.04 USDC |
+| `POST /v1/audio/transcriptions` (multipart, `whisper-1`) | audio-transcribe | 0.01 USDC |
+
+The OpenAI SDK has no x402 support, so either give it a fetch that pays x402 (for example `@x402/fetch`), or use a prepaid credit token (see below) as `api_key`. `GET /v1/models` lists the paths.
+
+## Whole tasks in one call
+
+`POST https://agentsvc.io/api/v1/proxy/agent-run` with `{"task": "..."}` (0.50 USDC): a Claude Haiku 5.5 agent uses up to 38 of the tools above and returns a Markdown answer with sources and the list of tool calls. Read only, up to 12 steps.
 
 ## No wallet?
 

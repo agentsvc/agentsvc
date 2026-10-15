@@ -1,4 +1,4 @@
-# All 120 services
+# All 122 services
 
 Generated from the live catalog at https://agentsvc.io/api/v1/services. Prices in USDC per call. Each service has a free sample with its example input at `/api/v1/try/<slug>`.
 
@@ -45,6 +45,8 @@ Generated from the live catalog at https://agentsvc.io/api/v1/services. Prices i
 
 | Service | Price | What it does |
 |---|---|---|
+| [`agent-run`](https://agentsvc.io/services/agent-run) | 0.5 | Hand off a whole research or lookup task in one call: a Claude Haiku 5.5 agent plans the steps, calls up to 38 agentsvc.io tools in parallel (web and news search, page reading, papers, GitHub and npm, company registers and sanctions, crypto prices, token checks, DeFi TVL and yields, wallets, FX and macro data, weather, DNS, WHOIS, SSL, CVEs) and returns a Markdown answer with sources and the list of tool calls it made |
+| [`audio-transcribe`](https://agentsvc.io/services/audio-transcribe) | 0.01 | Speech to text for agents: transcribe a voice note, meeting, podcast or call recording into text with timestamps, in about 100 languages with automatic language detection |
 | [`citation-check`](https://agentsvc.io/services/citation-check) | 0.005 | Verify references before you publish or rely on them: up to 10 citations per call, as reference strings in any style, DOIs, or {title, authors, year, doi} |
 | [`doc-convert`](https://agentsvc.io/services/doc-convert) | 0.01 | Convert documents between formats with pandoc: Markdown, HTML, DOCX, ODT, EPUB, RST, LaTeX, RTF, plain text and PDF |
 | [`doc-parse`](https://agentsvc.io/services/doc-parse) | 0.009 | Document parser: turn a document into clean, agent-ready Markdown with metadata: DOCX, ODT, EPUB, RTF, HTML, RST, LaTeX and more |
