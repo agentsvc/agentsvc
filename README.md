@@ -2,7 +2,7 @@
 
 # agentsvc.io
 
-**113 pay-per-call APIs for AI agents.** Your agent pays each call in USDC over [x402](https://x402.org), from its own wallet, on Base, Solana, Polygon or Arbitrum. No account, no API key, no subscription. Calls cost 0.002 to 0.04 USDC.
+**120 pay-per-call APIs for AI agents.** Your agent pays each call in USDC over [x402](https://x402.org), from its own wallet, on Base, Solana, Polygon or Arbitrum. No account, no API key, no subscription. Most calls cost 0.002 to 0.04 USDC, a few multi-source reports up to 0.60 USDC.
 
 Use it as a **remote MCP server** (`https://agentsvc.io/mcp`) or as plain **HTTP endpoints** (`POST https://agentsvc.io/api/v1/proxy/<service>`).
 
