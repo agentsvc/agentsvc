@@ -57,7 +57,7 @@ export function createAgentsvc(opts = {}) {
   /** Call one service. Returns its data; throws AgentsvcError on 402 (no payment), input errors and service errors (none of them are charged). */
   async function call(slug, input = {}) {
     const f = await getFetch();
-    const headers = { 'Content-Type': 'application/json', 'User-Agent': 'agentsvc-js/0.1.0' };
+    const headers = { 'Content-Type': 'application/json', 'User-Agent': 'agentsvc-js/0.1.1' };
     if (credit) headers.Authorization = `Bearer ${credit}`;
     const paid = credit || opts.privateKey || opts.payFetch;
     const url = paid ? `${base}/api/v1/proxy/${slug}` : `${base}/api/v1/try/${slug}`;

@@ -25,13 +25,13 @@ const check = await svc.call('token-precheck', { tokens: ['0x4ed4E862860beD51a95
 ## Vercel AI SDK
 
 ```js
-import { generateText, stepCountIs } from 'ai';
-import { anthropic } from '@ai-sdk/anthropic';
+import { generateText, isStepCount } from 'ai';
 import { createAgentsvc } from 'agentsvc';
 import { agentsvcTools } from 'agentsvc/ai-sdk';
 
 const tools = await agentsvcTools(createAgentsvc({ creditToken: process.env.AGENTSVC_CREDIT_TOKEN }), ['web-scrape', 'news-search', 'token-smart-money']);
-const { text } = await generateText({ model: anthropic('claude-haiku-5-5'), tools, stopWhen: stepCountIs(5), prompt: 'Who is buying BRETT on Base right now?' });
+// Full guide: https://agentsvc.io/docs/ai-sdk
+const { text } = await generateText({ model: 'anthropic/claude-haiku-5.5', tools, stopWhen: isStepCount(5), prompt: 'Who is buying BRETT on Base right now?' });
 ```
 
 ## LangChain.js

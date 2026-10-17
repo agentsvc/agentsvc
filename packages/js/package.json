@@ -1,6 +1,6 @@
 {
   "name": "agentsvc",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Pay-per-call tools for AI agents: 120+ web, data and crypto APIs paid in USDC via x402, with ready-made tools for the Vercel AI SDK and LangChain.js",
   "type": "module",
   "main": "./index.mjs",
