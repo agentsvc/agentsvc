@@ -2,12 +2,15 @@
 
 # agentsvc.io
 
-**122 pay-per-call APIs for AI agents.** Your agent pays each call in USDC over [x402](https://x402.org), from its own wallet, on Base, Solana, Polygon or Arbitrum. No account, no API key, no subscription. Most calls cost 0.002 to 0.04 USDC, a few multi-source reports up to 0.60 USDC.
+**126 pay-per-call APIs for AI agents.** Your agent pays each call in USDC over [x402](https://x402.org), from its own wallet, on Base, Solana, Polygon or Arbitrum. No account, no API key, no subscription. Most calls cost 0.002 to 0.04 USDC, a few multi-source reports up to 0.60 USDC.
 
 Use it as a **remote MCP server** (`https://agentsvc.io/mcp`) or as plain **HTTP endpoints** (`POST https://agentsvc.io/api/v1/proxy/<service>`).
 
 What agents use it for:
 
+- **Memory and messaging for agents:** `agent-memory` is a key-value store that survives between runs and can be shared with other agents (counters, logs, compare-and-set), `agent-inbox` gives your agent an address other agents can send results to, with long polling or a signed webhook. No account: a secret is the key.
+- **Finding the right API:** `service-finder` searches the whole x402 market (about 45,000 endpoints, not only ours) for a task in plain words and returns the best matches with price, networks and whether they answered our own check.
+- **Following smart money:** `token-smart-money` shows which large wallets are accumulating or dumping a token, whether the first buyers still hold, and how much of the volume is bots.
 - **Before a swap:** `token-precheck` answers ALLOW, CAUTION or BLOCK for up to 5 tokens (honeypot simulation, taxes, owner powers, liquidity). `token-verdict` grades one token A to F.
 - **Before acting on untrusted text:** `prompt-injection-check` for web pages, tool results and emails, `scam-message-check` for DMs, casts and emails.
 - **Before installing a dependency:** `package-check` answers ALLOW, CAUTION or BLOCK for up to 20 packages (npm, PyPI, crates.io, Go, Maven, NuGet, RubyGems): hallucinated names that do not exist, known malware, typosquats, vulnerable versions with a safe upgrade.
@@ -39,6 +42,8 @@ Remote server, streamable HTTP, no install:
 ```
 
 Claude Code: `claude mcp add --transport http agentsvc https://agentsvc.io/mcp`
+
+**Claude.ai, ChatGPT and other OAuth connectors:** add `https://agentsvc.io/mcp/credit` as a custom connector. The client signs in with OAuth; you paste a credit token from https://agentsvc.io/credits once, and every tool call is paid from that credit.
 
 Tools called with their example input are free. For paid calls the client attaches an x402 payment in `_meta["x402/payment"]` of `tools/call`; x402-aware MCP clients such as `@x402/mcp` do this automatically. If your client cannot pay, run the local bridge, which pays from a wallet you give it:
 
@@ -97,6 +102,25 @@ async with x402HttpxClient(client) as http:
 
 Both examples were run against the live service with a real USDC payment on Polygon.
 
+## A2A
+
+Agent2Agent (0.3) server at `https://agentsvc.io/a2a` (JSON-RPC) and `https://agentsvc.io/a2a/v1/message:send` (HTTP+JSON), with the [x402 extension for A2A](https://github.com/google-agentic-commerce/a2a-x402): send a data part `{"service": "<slug>", "input": {...}}`, the task comes back as `input-required` with `x402.payment.required`, answer with the same `taskId` and `x402.payment.payload`. Runnable client: [agentsvc/a2a-x402-payment-example](https://github.com/agentsvc/a2a-x402-payment-example).
+
+## Packages
+
+| | Install | Adapters |
+|---|---|---|
+| JavaScript | `npm i agentsvc` ([packages/js](packages/js)) | Vercel AI SDK (`agentsvc/ai-sdk`), LangChain.js (`agentsvc/langchain`) |
+| Python | `pip install agentsvc` ([packages/python](packages/python)) | LangChain (`agentsvc.langchain`), CrewAI (`agentsvc.crewai`) |
+
+Both pay with a credit token or from a wallet via x402 and turn any selection of services into framework tools with the live input schemas.
+
+## Examples
+
+- [x402-token-check-before-swap](https://github.com/agentsvc/x402-token-check-before-swap): a trading agent asks ALLOW, CAUTION or BLOCK and who is buying before it swaps (TypeScript).
+- [a2a-x402-payment-example](https://github.com/agentsvc/a2a-x402-payment-example): pay an A2A agent with x402 (TypeScript).
+- [agent-inbox-handoff-example](https://github.com/agentsvc/agent-inbox-handoff-example): two agents hand work to each other through an inbox and shared memory (Python).
+
 ## OpenAI-compatible paths
 
 Same x402 payment and prices, OpenAI request and response format, base URL `https://agentsvc.io/v1`:
@@ -128,6 +152,8 @@ Buy a prepaid credit token at https://agentsvc.io/credits and send it as `Author
 | Guide for agents | https://agentsvc.io/llms.txt and https://agentsvc.io/llms-full.txt |
 | MCP server card | https://agentsvc.io/.well-known/mcp.json |
 | A2A agent card | https://agentsvc.io/.well-known/agent-card.json |
+| OAuth metadata (MCP connectors) | https://agentsvc.io/.well-known/oauth-protected-resource/mcp/credit |
+| DID | `did:web:agentsvc.io` |
 
 Listed in the Coinbase CDP Bazaar, on x402scan and in the official MCP registry as `io.agentsvc/services`. Registered on Base under ERC-8004 as agent #98109.
 

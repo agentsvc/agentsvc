@@ -1,4 +1,4 @@
-# All 122 services
+# All 126 services
 
 Generated from the live catalog at https://agentsvc.io/api/v1/services. Prices in USDC per call. Each service has a free sample with its example input at `/api/v1/try/<slug>`.
 
@@ -24,7 +24,7 @@ Generated from the live catalog at https://agentsvc.io/api/v1/services. Prices i
 | [`site-map`](https://agentsvc.io/services/site-map) | 0.0025 | List the URLs of a website without reading them: robots.txt, sitemaps and sitemap indexes plus homepage links, up to 1,000 same-site URLs with lastmod and source |
 | [`tech-stack`](https://agentsvc.io/services/tech-stack) | 0.009 | Detect the technologies a website uses (CMS, frameworks, analytics, CDN, web server, ecommerce, tag managers ...) from its HTML, headers, cookies, meta tags and script URLs, matched against 7,600+ open webappanalyzer fingerprints |
 | [`web-read-batch`](https://agentsvc.io/services/web-read-batch) | 0.005 | Read 2 to 5 pages whose URLs you already know in one call, each as clean Markdown with title and description, fetched in parallel |
-| [`web-scrape`](https://agentsvc.io/services/web-scrape) | 0.0025 | Web scraper, URL to Markdown |
+| [`web-scrape`](https://agentsvc.io/services/web-scrape) | 0.0025 | URL to Markdown web scraper: read any web page as clean, LLM-ready Markdown |
 | [`web-search`](https://agentsvc.io/services/web-search) | 0.0035 | Quick factual lookup: a plain-language summary (abstract) plus up to 5 relevant links from Wikipedia |
 | [`webpage-reader`](https://agentsvc.io/services/webpage-reader) | 0.009 | Read ONE JavaScript-heavy page (single-page apps, dashboards, content loaded after page load) in a real Chromium browser and get the rendered text with title, description, word_count and optional links |
 
@@ -95,7 +95,7 @@ Generated from the live catalog at https://agentsvc.io/api/v1/services. Prices i
 | [`timezone`](https://agentsvc.io/services/timezone) | 0.002 | Resolve a city name or coordinates to its IANA timezone and return the current local time, UTC offset, DST flag and weekday |
 | [`trends-hot`](https://agentsvc.io/services/trends-hot) | 0.0155 | What is trending right now: Hacker News top stories, GitHub trending repositories (stars today/week/month), most-read Wikipedia articles (any language edition), Google News top stories per country, Baidu realtime hot searches and Bilibili popular videos (China) |
 | [`vin-decode`](https://agentsvc.io/services/vin-decode) | 0.0035 | Decode a 17-character vehicle identification number with NHTSA vPIC: make, model, model year, trim, body, doors, engine (cylinders, displacement, hp, fuel, electrification), drive, transmission, manufacturer and plant |
-| [`weather`](https://agentsvc.io/services/weather) | 0.002 | Current weather plus daily forecast up to 10 days and optional hourly forecast up to 48 hours, worldwide, from MET Norway |
+| [`weather`](https://agentsvc.io/services/weather) | 0.002 | Weather forecast and current weather for any city or lat,lon worldwide, from MET Norway: daily forecast up to 10 days plus optional hourly forecast up to 48 hours |
 
 ## Crypto, DeFi and finance
 
@@ -106,7 +106,7 @@ Generated from the live catalog at https://agentsvc.io/api/v1/services. Prices i
 | [`btc-tx`](https://agentsvc.io/services/btc-tx) | 0.002 | Bitcoin transaction by txid: confirmed or in the mempool, confirmations, block, fee in sats and sat/vB, RBF signal, inputs and outputs with addresses and amounts, USD value |
 | [`btc-watch`](https://agentsvc.io/services/btc-watch) | 0.002 | Watch a Bitcoin address in a loop and get only new transactions since your last call, with direction, net BTC, confirmations and time, plus the balance |
 | [`crypto-news`](https://agentsvc.io/services/crypto-news) | 0.0025 | Latest crypto news from CoinDesk, Cointelegraph, Decrypt, The Block and Bitcoin Magazine, merged and ranked: the same story covered by several outlets is grouped and ranked higher, newer stories rank higher |
-| [`crypto-prices`](https://agentsvc.io/services/crypto-prices) | 0.002 | Crypto prices in USD and other currencies |
+| [`crypto-prices`](https://agentsvc.io/services/crypto-prices) | 0.002 | Crypto price and token price lookup: live spot price and 24h change for BTC, ETH, SOL and other coins by ticker, or for any DEX-traded token by chain:address, in USD and other currencies |
 | [`defi-tvl`](https://agentsvc.io/services/defi-tvl) | 0.002 | DeFi data from DefiLlama in four modes |
 | [`defi-yields`](https://agentsvc.io/services/defi-yields) | 0.0055 | Find DeFi yield pools across 400+ protocols and 100+ chains (DefiLlama data): APY split into base and reward, 30-day mean APY, 7-day APY change, TVL, stablecoin flag, impermanent-loss risk |
 | [`erc20-transfers`](https://agentsvc.io/services/erc20-transfers) | 0.004 | Recent Transfer events of an ERC-20 token (newest first, up to 50): tx, time, from, to, amount in token units |
@@ -125,6 +125,7 @@ Generated from the live catalog at https://agentsvc.io/api/v1/services. Prices i
 | [`token-precheck`](https://agentsvc.io/services/token-precheck) | 0.004 | Honeypot and rug check before a trade, built for trading bots that check every token in a loop: up to 5 token addresses per call (Base, Ethereum, BSC, Arbitrum, Polygon, Avalanche, Optimism or Solana), one decision each: ALLOW, CAUTION or BLOCK, with grade A to F, score, honeypot flag and the main reason |
 | [`token-security`](https://agentsvc.io/services/token-security) | 0.009 | Token security and honeypot check with risk grade A to F for a token before buying or accepting it, on Solana (SPL and Token-2022) and on Base, Ethereum, BNB Chain, Arbitrum, Polygon, Avalanche or Optimism, computed by us directly on the blockchain |
 | [`token-simulate`](https://agentsvc.io/services/token-simulate) | 0.012 | Replays a real buy and sell of the token on chain state and tells you if you can get out again: buy_succeeded, sell_succeeded, buy and sell tax in percent, honeypot reason, estimated round-trip cost in percent and USD for amount_usd, plus the pools used |
+| [`token-smart-money`](https://agentsvc.io/services/token-smart-money) | 0.015 | Smart money and whale activity for a token, straight from the chain: which large wallets are accumulating or distributing right now (buy/sell USD, net, average buy and sell price, realized profit, what they still hold), who the first buyers after launch were and whether they still hold or sold everything, and how much of the volume is bots |
 | [`token-verdict`](https://agentsvc.io/services/token-verdict) | 0.009 | Instant buy-or-avoid verdict for a token, with a shareable result page and preview card (share_url): send a contract address (Base, Ethereum, BSC, Arbitrum, Polygon, Avalanche, Optimism) or a Solana mint, get a grade A to F, a label (SAFE, CAUTION, RISKY, DANGER), a 0 to 100 score and a one-line reason, built from real checks: honeypot sell simulation, buy and sell tax, mint, freeze and owner powers, owner powers in the contract code, DEX liquidity and token age, all computed by us on the blockchain |
 | [`token-watch`](https://agentsvc.io/services/token-watch) | 0.008 | Token monitoring for trading agents: re-checks a token on-chain and reports only what changed since your last call: grade downgrade (A to F), honeypot or sell tax appearing, new risk flags (mint, blacklist, owner powers), price and liquidity moves above your threshold (liquidity pulls, rug signals) and holder concentration shifts, with an alert_level (none, medium, high) |
 | [`tron-address`](https://agentsvc.io/services/tron-address) | 0.002 | Tron address check: TRX balance and staked TRX, USDT and USDC (TRC-20) balances, USD value, when the account was created and last active, bandwidth and energy, and warning signals (never activated, created in the last 7 days, smart contract instead of a wallet) |
@@ -136,6 +137,8 @@ Generated from the live catalog at https://agentsvc.io/api/v1/services. Prices i
 
 | Service | Price | What it does |
 |---|---|---|
+| [`agent-inbox`](https://agentsvc.io/services/agent-inbox) | 0.003 | A mailbox for AI agents, no account: create an inbox and get a public address (inbox_...) plus a secret |
+| [`agent-memory`](https://agentsvc.io/services/agent-memory) | 0.002 | Persistent memory for AI agents without an account: store JSON under a key and read it back in a later run, or share it with other agents |
 | [`barcode`](https://agentsvc.io/services/barcode) | 0.0025 | Generate a barcode as PNG (base64): code128 (default), ean13, ean8, upca, upce, code39, itf14, gs1_128, isbn, datamatrix, pdf417, aztec or qr |
 | [`cve-lookup`](https://agentsvc.io/services/cve-lookup) | 0.009 | Look up a vulnerability by CVE or GHSA id (NVD: description, CVSS score and vector, CWE, CISA known-exploited flag; OSV: affected packages and fixed versions) or check a package version for known vulnerabilities via OSV.dev (npm, PyPI, Maven, Go, crates.io, RubyGems, NuGet, Packagist, Debian ...) |
 | [`dns-lookup`](https://agentsvc.io/services/dns-lookup) | 0.002 | Resolve DNS records for any domain |
@@ -148,6 +151,7 @@ Generated from the live catalog at https://agentsvc.io/api/v1/services. Prices i
 | [`package-check`](https://agentsvc.io/services/package-check) | 0.004 | Check dependencies before your coding agent installs them: up to 20 packages per call (npm, PyPI, crates.io, Go, Maven, NuGet, RubyGems), one decision each: ALLOW, CAUTION or BLOCK with reasons |
 | [`phone-validate`](https://agentsvc.io/services/phone-validate) | 0.0045 | Parse and validate any phone number worldwide using libphonenumber |
 | [`qr-code`](https://agentsvc.io/services/qr-code) | 0.004 | Generate a QR code for any text or URL |
+| [`service-finder`](https://agentsvc.io/services/service-finder) | 0.005 | Find the right paid API for a task across the whole x402 market, not only agentsvc.io: describe what your agent needs in plain words ("convert a web page to markdown", "token price on Solana", "transcribe audio") and get the best matching x402 endpoints from about 45,000 listed ones, each with provider, URL, method, price in USD, payment networks, an input hint, and whether it answered our own check with a valid 402 (reachable, checked_at, response time) |
 | [`ssl-check`](https://agentsvc.io/services/ssl-check) | 0.009 | Inspect SSL/TLS certificate for any domain |
 | [`url-status`](https://agentsvc.io/services/url-status) | 0.005 | Check whether a URL is reachable and what it returns: final status code, full redirect chain, response time, content-type, server header and content length |
 | [`useragent-parse`](https://agentsvc.io/services/useragent-parse) | 0.002 | Parse a User-Agent string into browser, engine, OS, device type/vendor/model and CPU, and flag bots and AI crawlers (GPTBot, ClaudeBot, PerplexityBot ...) |

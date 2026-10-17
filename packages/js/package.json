@@ -1,0 +1,34 @@
+{
+  "name": "agentsvc",
+  "version": "0.1.0",
+  "description": "Pay-per-call tools for AI agents: 120+ web, data and crypto APIs paid in USDC via x402, with ready-made tools for the Vercel AI SDK and LangChain.js",
+  "type": "module",
+  "main": "./index.mjs",
+  "exports": {
+    ".": "./index.mjs",
+    "./ai-sdk": "./ai-sdk.mjs",
+    "./langchain": "./langchain.mjs"
+  },
+  "files": ["index.mjs", "ai-sdk.mjs", "langchain.mjs", "index.d.ts", "README.md"],
+  "types": "./index.d.ts",
+  "keywords": ["x402", "ai-agents", "mcp", "vercel-ai-sdk", "langchain", "tools", "web-scraping", "crypto", "usdc", "pay-per-call"],
+  "homepage": "https://agentsvc.io",
+  "repository": { "type": "git", "url": "git+https://github.com/agentsvc/agentsvc.git", "directory": "packages/js" },
+  "bugs": "https://github.com/agentsvc/agentsvc/issues",
+  "license": "MIT",
+  "engines": { "node": ">=18" },
+  "peerDependencies": {
+    "@x402/fetch": ">=2.0.0",
+    "@x402/evm": ">=2.0.0",
+    "viem": ">=2.0.0",
+    "ai": ">=4.0.0",
+    "@langchain/core": ">=0.3.0"
+  },
+  "peerDependenciesMeta": {
+    "@x402/fetch": { "optional": true },
+    "@x402/evm": { "optional": true },
+    "viem": { "optional": true },
+    "ai": { "optional": true },
+    "@langchain/core": { "optional": true }
+  }
+}

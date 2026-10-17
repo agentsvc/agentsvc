@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agentsvc"
+version = "0.1.0"
+description = "Pay-per-call tools for AI agents: 120+ web, data and crypto APIs paid in USDC via x402, with ready-made LangChain and CrewAI tools"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+dependencies = ["httpx>=0.25"]
+keywords = ["x402", "ai-agents", "langchain", "crewai", "tools", "mcp", "web-scraping", "crypto", "usdc"]
+classifiers = ["Programming Language :: Python :: 3", "Topic :: Software Development :: Libraries", "Intended Audience :: Developers"]
+
+[project.optional-dependencies]
+wallet = ["x402[httpx,evm]>=2.0", "eth-account>=0.10"]
+langchain = ["langchain-core>=0.3"]
+crewai = ["crewai>=0.80"]
+
+[project.urls]
+Homepage = "https://agentsvc.io"
+Documentation = "https://agentsvc.io/llms.txt"
+Repository = "https://github.com/agentsvc/agentsvc"
